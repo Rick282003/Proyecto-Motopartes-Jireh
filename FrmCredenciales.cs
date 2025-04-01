@@ -49,7 +49,7 @@ namespace Proyecto_Motopartes_Jireh
             string contraseña = txtContraseña.Text;
 
             // Crear la consulta SQL
-            string query = "SELECT * FROM Usuarios WHERE Nombre = @usuario AND Contraseña = @contraseña";
+            string query = "SELECT IDEmpleado FROM Usuarios WHERE Nombre = @usuario AND Contraseña = @contraseña";
 
             /* Consulta SQL para obtener ID_Empleado
             string query1 = "SELECT IDEmpleado FROM Usuarios WHERE Nombre = @usuario AND Contraseña = @contraseña";*/
@@ -69,6 +69,10 @@ namespace Proyecto_Motopartes_Jireh
 
                     // Si existe, mostrar mensaje y abrir formulario de bienvenido
                     reader.Read();  // Mover al primer (y único) resultado
+
+                    UsuarioActual.IDEmpleado = reader.GetInt32(0); // Obtener IDEmpleado
+                    MessageBox.Show($"IDEmpleado recuperado: {UsuarioActual.IDEmpleado}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     FrmBienvenido bienve = new FrmBienvenido(txtUsuario.Text);
                     this.Hide();
                     bienve.Show();
@@ -81,12 +85,18 @@ namespace Proyecto_Motopartes_Jireh
                 }
                 // Cerrar el reader
                 reader.Close();
+                MessageBox.Show("Insertando compra con IDEmpleado: " + UsuarioActual.IDEmpleado);
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al validar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public static class UsuarioActual
+        {
+            public static int IDEmpleado { get; set; }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
