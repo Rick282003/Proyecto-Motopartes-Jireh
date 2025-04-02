@@ -76,6 +76,7 @@
             this.btnPersonal.Text = "Personal";
             this.btnPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPersonal.UseVisualStyleBackColor = false;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
             // btnInventario
             // 

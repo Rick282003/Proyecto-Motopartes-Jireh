@@ -21,5 +21,10 @@ namespace Proyecto_Motopartes_Jireh
         {
 
         }
+
+        private void Personal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -41,7 +41,7 @@
             this.Btn_ExportarPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Btn_ExportarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Btn_ExportarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ExportarPDF.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ExportarPDF.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ExportarPDF.ForeColor = System.Drawing.Color.White;
             this.Btn_ExportarPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_ExportarPDF.Location = new System.Drawing.Point(444, 3);
@@ -122,7 +122,8 @@
             this.Controls.Add(this.Btn_ExportarPDF);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Personal";
-            this.Text = "Personal";
+            this.Text = "frm_Reporte_Personal";
+            this.Load += new System.EventHandler(this.Personal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

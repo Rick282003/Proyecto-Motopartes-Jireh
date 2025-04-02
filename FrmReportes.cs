@@ -11,10 +11,16 @@ using System.Windows.Forms;
 namespace Proyecto_Motopartes_Jireh
 {
     public partial class FrmReportes : Form
+
     {
         public FrmReportes()
         {
             InitializeComponent();
+        }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Proyecto_Motopartes_Jireh
 {
     internal class clsConexion
     {
-        string conexion = "Data Source = DESKTOP-QBA3PNK; Initial Catalog = Proyecto_MotopartesJireh; Integrated Security = true";//Nombre del server//Nombre DataBase//Cadena de conexion
+        string conexion = "Data Source = localhost; Initial Catalog = Proyecto_MotopartesJireh; Integrated Security = true";//Nombre del server//Nombre DataBase//Cadena de conexion
 
         //INSTANCIA DE CLASE
         public SqlConnection SC = new SqlConnection();
