@@ -30,6 +30,20 @@ namespace Proyecto_Motopartes_Jireh
             CargarComboBox();
         }
 
+
+        // Método para verificar si el IDProducto ya existe
+        private bool ExisteIDProducto(int idProducto)
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Productos WHERE IDProducto = @IDProducto", conexion.SC))
+            {
+                cmd.Parameters.AddWithValue("@IDProducto", idProducto);
+                conexion.Abrir();
+                int count = (int)cmd.ExecuteScalar();
+                conexion.Cerrar();
+                return count > 0; // Retorna true si el ID ya existe
+            }
+        }
+
         private void CargarComboBox()
         {
             try
@@ -190,38 +204,94 @@ namespace Proyecto_Motopartes_Jireh
         {
             try
             {
+                
 
-                string query = "INSERT INTO Compras (CodigoCompra, NombreProducto, Fecha, Cantidad, Imagen, ImagenProducto, Precio, IDEmpleado, IDProveedor) " +
-                               "VALUES (@CodigoCompra, @NombreProducto, @Fecha, @Cantidad, @Imagen, @ImagenProducto, @Precio, @IDEmpleado, @IDProveedor)";
+                // Obtener datos del formulario
+                int codigoCompra = int.Parse(txtCodigoCompra.Text); // Código de la compra del TextBox
+                string nombreProducto = txtNombreProducto.Text;
+                int cantidad = Convert.ToInt32(txtCantidad.Text);
+                decimal precio = Convert.ToDecimal(txtPrecioUnitario.Text);
+                string marca = txtMarcaProducto.Text;
+                string modelo = txtModeloProducto.Text;
+                //int idProveedor = ((KeyValuePair<int, string>)cmbProveedores.SelectedItem).Key);
+                DateTime fecha = DateTime.Now;
 
-                using (SqlCommand cmd = new SqlCommand(query, conexion.SC))
+                byte[] imagenProducto = ConvertirImagenABytes(pbProducto);
+                byte[] imagenComprobante = ConvertirImagenABytes(pbComprobante);
+
+                // Abrir conexión
+                conexion.Abrir();
+
+                // 1. Verificar si el CodigoCompra ya existe
+                string checkQuery = "SELECT COUNT(*) FROM Compras WHERE CodigoCompra = @CodigoCompra";
+                SqlCommand checkCmd = new SqlCommand(checkQuery, conexion.SC);
+                checkCmd.Parameters.AddWithValue("@CodigoCompra", codigoCompra);
+                int count = (int)checkCmd.ExecuteScalar();
+
+                if (count > 0)
                 {
-                    cmd.Parameters.AddWithValue("@CodigoCompra", int.Parse(txtCodigoCompra.Text));
-                    cmd.Parameters.AddWithValue("@NombreProducto", txtNombreProducto.Text);
-                    cmd.Parameters.AddWithValue("@Fecha", dtpFecha.Value);
-                    cmd.Parameters.AddWithValue("@Cantidad", int.Parse(txtCantidad.Text));
-                    cmd.Parameters.AddWithValue("@Imagen", (object)ConvertirImagenABytes(pbComprobante) ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@ImagenProducto", (object)ConvertirImagenABytes(pbProducto) ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Precio", decimal.Parse(txtPrecioUnitario.Text));
-                    cmd.Parameters.AddWithValue("@IDEmpleado", UsuarioActual.IDEmpleado); // Tomado del login
-                    cmd.Parameters.AddWithValue("@IDProveedor", ((KeyValuePair<int, string>)cmbProveedores.SelectedItem).Key);
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Compra registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    txtCodigoCompra.Clear();
-                    txtNombreProducto.Clear();
-                    txtCantidad.Clear();
-                    txtPrecioUnitario.Clear();
-                    lblTotal.Text = "0.00";
-                    cmbProveedores.SelectedIndex = -1;
-                    dtpFecha.Value = DateTime.Now;
-
-                    // Limpiar PictureBox
-                    pbComprobante.Image = null;
-                    pbProducto.Image = null;
+                    MessageBox.Show("El Código de Compra ya existe. Por favor, ingresa un Código de Compra único.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conexion.Abrir();
+                    return;
                 }
+
+                // 2. Insertar en la tabla Compras
+                string queryCompra = "INSERT INTO Compras (CodigoCompra, NombreProducto, Fecha, Cantidad, Imagen, ImagenProducto, Precio, IDEmpleado, IDProveedor) " +
+                                     "VALUES (@CodigoCompra, @NombreProducto, @Fecha, @Cantidad, @Imagen, @ImagenProducto, @Precio, @IDEmpleado, @IDProveedor)";
+                SqlCommand cmdCompra = new SqlCommand(queryCompra, conexion.SC);
+                cmdCompra.Parameters.AddWithValue("@CodigoCompra", codigoCompra);
+                cmdCompra.Parameters.AddWithValue("@NombreProducto", nombreProducto);
+                cmdCompra.Parameters.AddWithValue("@Fecha", fecha);
+                cmdCompra.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmdCompra.Parameters.AddWithValue("@Imagen", (object)imagenComprobante ?? DBNull.Value);
+                cmdCompra.Parameters.AddWithValue("@ImagenProducto", (object)imagenProducto ?? DBNull.Value);
+                cmdCompra.Parameters.AddWithValue("@Precio", precio);
+                cmdCompra.Parameters.AddWithValue("@IDEmpleado", UsuarioActual.IDEmpleado); // Suponiendo que hay un método para obtenerlo
+                cmdCompra.Parameters.AddWithValue("@IDProveedor", ((KeyValuePair<int, string>)cmbProveedores.SelectedItem).Key);
+                cmdCompra.ExecuteNonQuery();
+
+                // 3. Insertar en la tabla Productos
+                string queryProducto = "INSERT INTO Productos (IDProducto, NombreProducto, Modelo, FechaRegistro, Precio, Cantidad, Estado, CodigoCompra, IDProveedor, Marca, Imagen) " +
+                                       "VALUES (@IDProducto, @NombreProducto, @Modelo, @FechaRegistro, @Precio, @Cantidad, @Estado, @CodigoCompra, @IDProveedor, @Marca, @ImagenProducto)";
+                SqlCommand cmdProducto = new SqlCommand(queryProducto, conexion.SC);
+                cmdProducto.Parameters.AddWithValue("@IDProducto", int.Parse(txtCodigoProducto.Text)); // IDProducto desde el TextBox
+                cmdProducto.Parameters.AddWithValue("@NombreProducto", nombreProducto);
+                cmdProducto.Parameters.AddWithValue("@Modelo", modelo); // Puedes modificar si hay modelo
+                cmdProducto.Parameters.AddWithValue("@FechaRegistro", fecha);
+                cmdProducto.Parameters.AddWithValue("@Precio", precio);
+                cmdProducto.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmdProducto.Parameters.AddWithValue("@Estado", 1); // 1 = Activo (puedes cambiarlo según la lógica)
+                cmdProducto.Parameters.AddWithValue("@CodigoCompra", codigoCompra); // Usar el CodigoCompra de la compra insertada
+                cmdProducto.Parameters.AddWithValue("@IDProveedor", ((KeyValuePair<int, string>)cmbProveedores.SelectedItem).Key);
+                cmdProducto.Parameters.AddWithValue("@Marca", marca);
+                cmdProducto.Parameters.AddWithValue("@ImagenProducto", (object)imagenProducto ?? DBNull.Value);
+
+                cmdProducto.ExecuteNonQuery();
+
+                // Cerrar conexión
+                conexion.Cerrar();
+
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Compra y producto guardados exitosamente.");
+
+
+                // Limpiar campos
+                txtCodigoCompra.Clear();
+                txtNombreProducto.Clear();
+                txtMarcaProducto.Clear();
+                txtModeloProducto.Clear();
+                txtCantidad.Clear();
+                txtPrecioUnitario.Clear();
+                lblTotal.Text = "0.00";
+                cmbProveedores.SelectedIndex = -1;
+                dtpFecha.Value = DateTime.Now;
+               
+
+                // Limpiar PictureBox
+                pbComprobante.Image = null;
+                pbProducto.Image = null;
+
+
             }
             catch (Exception ex)
             {
@@ -242,6 +312,11 @@ namespace Proyecto_Motopartes_Jireh
             // Limpiar PictureBox
             pbComprobante.Image = null;
             pbProducto.Image = null;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

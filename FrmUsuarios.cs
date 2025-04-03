@@ -170,7 +170,7 @@ namespace Proyecto_Motopartes_Jireh
                     txtTelefono.Clear();
                     txtNombreUsuario.Clear();
                     txtContraseña.Clear();
-                    txtConfirmarContraseña.Clear();
+                    
                 }
             }
             catch (Exception ex)
@@ -279,7 +279,7 @@ namespace Proyecto_Motopartes_Jireh
                 txtTelefono.Clear();
                 txtNombreUsuario.Clear();
                 txtContraseña.Clear();
-                txtConfirmarContraseña.Clear();
+                
             }
             catch (Exception ex)
             {
@@ -287,6 +287,20 @@ namespace Proyecto_Motopartes_Jireh
             }
         }
 
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            // Verificar si los campos no están vacíos
+            if (string.IsNullOrWhiteSpace(txtNombreEmpleado.Text) || string.IsNullOrWhiteSpace(txtApellidoEmpleado.Text))
+            {
+                MessageBox.Show("Por favor, ingrese tanto el Nombre como el Apellido antes de generar el usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Generar el nombre de usuario en minúsculas con punto
+            string usuario = $"{txtNombreEmpleado.Text.ToLower()}.{txtApellidoEmpleado.Text.ToLower()}";
+
+            // Asignar al campo de usuario
+            txtNombreUsuario.Text = usuario;
+        }
     }
 }

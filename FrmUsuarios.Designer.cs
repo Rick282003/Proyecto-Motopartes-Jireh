@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblContraseña = new System.Windows.Forms.Label();
-            this.lblConfirmar_Contraseña = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtIDUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.txtConfirmarContraseña = new System.Windows.Forms.TextBox();
             this.txtIDEmpleado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
@@ -161,6 +159,7 @@
             this.btnGenerar.TabIndex = 51;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // lblContraseña
             // 
@@ -175,26 +174,12 @@
             this.lblContraseña.TabIndex = 52;
             this.lblContraseña.Text = "Contraseña:";
             // 
-            // lblConfirmar_Contraseña
-            // 
-            this.lblConfirmar_Contraseña.AutoSize = true;
-            this.lblConfirmar_Contraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
-            this.lblConfirmar_Contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmar_Contraseña.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmar_Contraseña.Location = new System.Drawing.Point(649, 483);
-            this.lblConfirmar_Contraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblConfirmar_Contraseña.Name = "lblConfirmar_Contraseña";
-            this.lblConfirmar_Contraseña.Size = new System.Drawing.Size(218, 23);
-            this.lblConfirmar_Contraseña.TabIndex = 54;
-            this.lblConfirmar_Contraseña.Text = "Confirmar Contraseña:";
-            this.lblConfirmar_Contraseña.Click += new System.EventHandler(this.label3_Click);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(648, 584);
+            this.btnGuardar.Location = new System.Drawing.Point(648, 553);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(204, 43);
@@ -208,7 +193,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(920, 584);
+            this.btnActualizar.Location = new System.Drawing.Point(920, 553);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(204, 43);
@@ -222,7 +207,7 @@
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(788, 635);
+            this.btnLimpiar.Location = new System.Drawing.Point(788, 604);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(204, 46);
@@ -332,16 +317,6 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(373, 22);
             this.txtContraseña.TabIndex = 71;
-            // 
-            // txtConfirmarContraseña
-            // 
-            this.txtConfirmarContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
-            this.txtConfirmarContraseña.ForeColor = System.Drawing.Color.White;
-            this.txtConfirmarContraseña.Location = new System.Drawing.Point(652, 510);
-            this.txtConfirmarContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
-            this.txtConfirmarContraseña.Size = new System.Drawing.Size(373, 22);
-            this.txtConfirmarContraseña.TabIndex = 72;
             // 
             // txtIDEmpleado
             // 
@@ -588,7 +563,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtIDEmpleado);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtConfirmarContraseña);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtIDUsuario);
             this.Controls.Add(this.label3);
@@ -600,7 +574,6 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.lblConfirmar_Contraseña);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.label2);
@@ -635,7 +608,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.Label lblConfirmar_Contraseña;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnLimpiar;
@@ -647,7 +619,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtIDUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.TextBox txtConfirmarContraseña;
         private System.Windows.Forms.TextBox txtIDEmpleado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombreEmpleado;

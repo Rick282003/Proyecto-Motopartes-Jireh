@@ -85,7 +85,7 @@ namespace Proyecto_Motopartes_Jireh
                 }
                 // Cerrar el reader
                 reader.Close();
-                MessageBox.Show("Insertando compra con IDEmpleado: " + UsuarioActual.IDEmpleado);
+                MessageBox.Show("Insertando compras y ventas con IDEmpleado: " + UsuarioActual.IDEmpleado);
 
             }
             catch (Exception ex)

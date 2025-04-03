@@ -54,6 +54,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtCodigoProducto = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMarcaProducto = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtModeloProducto = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbComprobante)).BeginInit();
@@ -100,7 +106,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 293);
+            this.label2.Location = new System.Drawing.Point(64, 315);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 19);
             this.label2.TabIndex = 44;
@@ -112,7 +118,7 @@
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.White;
             this.dtpFecha.CalendarTitleForeColor = System.Drawing.Color.White;
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(305, 293);
+            this.dtpFecha.Location = new System.Drawing.Point(305, 315);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(363, 27);
@@ -124,7 +130,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(64, 368);
+            this.label3.Location = new System.Drawing.Point(64, 390);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 19);
             this.label3.TabIndex = 46;
@@ -133,7 +139,7 @@
             // txtNombreProducto
             // 
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(305, 368);
+            this.txtNombreProducto.Location = new System.Drawing.Point(305, 390);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(301, 27);
@@ -142,7 +148,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(305, 446);
+            this.txtCantidad.Location = new System.Drawing.Point(305, 558);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(301, 27);
@@ -155,7 +161,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(64, 446);
+            this.label4.Location = new System.Drawing.Point(64, 558);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 19);
             this.label4.TabIndex = 48;
@@ -164,7 +170,7 @@
             // txtPrecioUnitario
             // 
             this.txtPrecioUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioUnitario.Location = new System.Drawing.Point(305, 526);
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(305, 604);
             this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.Size = new System.Drawing.Size(301, 27);
@@ -177,7 +183,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(64, 526);
+            this.label5.Location = new System.Drawing.Point(64, 604);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 19);
             this.label5.TabIndex = 50;
@@ -189,7 +195,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(613, 533);
+            this.label6.Location = new System.Drawing.Point(613, 611);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 19);
             this.label6.TabIndex = 52;
@@ -201,7 +207,7 @@
             this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label.ForeColor = System.Drawing.Color.White;
-            this.label.Location = new System.Drawing.Point(64, 618);
+            this.label.Location = new System.Drawing.Point(64, 633);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(51, 19);
             this.label.TabIndex = 53;
@@ -213,7 +219,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(481, 618);
+            this.lblTotal.Location = new System.Drawing.Point(481, 633);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 19);
             this.lblTotal.TabIndex = 55;
@@ -222,7 +228,7 @@
             // cmbProveedores
             // 
             this.cmbProveedores.FormattingEnabled = true;
-            this.cmbProveedores.Location = new System.Drawing.Point(305, 217);
+            this.cmbProveedores.Location = new System.Drawing.Point(305, 239);
             this.cmbProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbProveedores.Name = "cmbProveedores";
             this.cmbProveedores.Size = new System.Drawing.Size(363, 24);
@@ -234,7 +240,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(64, 222);
+            this.label8.Location = new System.Drawing.Point(64, 244);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(202, 19);
             this.label8.TabIndex = 57;
@@ -355,11 +361,75 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(1331, 43);
+            this.label11.Location = new System.Drawing.Point(1334, 43);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(245, 19);
             this.label11.TabIndex = 64;
             this.label11.Text = "Arrastre Imagen de Producto";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // txtCodigoProducto
+            // 
+            this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoProducto.Location = new System.Drawing.Point(305, 185);
+            this.txtCodigoProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCodigoProducto.Name = "txtCodigoProducto";
+            this.txtCodigoProducto.Size = new System.Drawing.Size(301, 27);
+            this.txtCodigoProducto.TabIndex = 66;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(64, 185);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(180, 19);
+            this.label7.TabIndex = 65;
+            this.label7.Text = "Codigo de Producto:";
+            // 
+            // txtMarcaProducto
+            // 
+            this.txtMarcaProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarcaProducto.Location = new System.Drawing.Point(305, 455);
+            this.txtMarcaProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMarcaProducto.Name = "txtMarcaProducto";
+            this.txtMarcaProducto.Size = new System.Drawing.Size(301, 27);
+            this.txtMarcaProducto.TabIndex = 68;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(64, 455);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(176, 19);
+            this.label12.TabIndex = 67;
+            this.label12.Text = "Marca del Producto:";
+            // 
+            // txtModeloProducto
+            // 
+            this.txtModeloProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModeloProducto.Location = new System.Drawing.Point(305, 506);
+            this.txtModeloProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtModeloProducto.Name = "txtModeloProducto";
+            this.txtModeloProducto.Size = new System.Drawing.Size(301, 27);
+            this.txtModeloProducto.TabIndex = 70;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(126)))), ((int)(((byte)(170)))));
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(64, 506);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(186, 19);
+            this.label13.TabIndex = 69;
+            this.label13.Text = "Modelo del Producto:";
             // 
             // FrmCompras
             // 
@@ -367,6 +437,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1920, 919);
+            this.Controls.Add(this.txtModeloProducto);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtMarcaProducto);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtCodigoProducto);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtCodigoCompra);
@@ -435,5 +511,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCodigoProducto;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMarcaProducto;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtModeloProducto;
+        private System.Windows.Forms.Label label13;
     }
 }
